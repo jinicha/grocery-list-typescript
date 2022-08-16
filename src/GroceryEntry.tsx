@@ -1,11 +1,12 @@
 import React from 'react';
 
-interface GroceryListProps {
+interface GroceryEntryProps {
   item: string;
+  remove(item: string): void;
 }
 
-export default function GroceryEntry({ item }: GroceryListProps) {
+export default function GroceryEntry({ item, remove }: GroceryEntryProps) {
   return (
-    <div>{item}</div>
+    <div onClick={() => remove(item)} aria-hidden="true">{item}</div>
   );
-};
+}

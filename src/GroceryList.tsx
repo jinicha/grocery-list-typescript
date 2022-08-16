@@ -1,16 +1,17 @@
 import React from 'react';
 import GroceryEntry from './GroceryEntry';
 
-interface AppProps {
+interface GroceryListProps {
   list: string[];
-};
+  remove(item: string): void;
+}
 
-export default function GroceryList({ list }: AppProps) {
+export default function GroceryList({ list, remove }: GroceryListProps) {
   return (
     <div>
-      {list.map(item => (
-        <GroceryEntry item={item} />
+      {list.map((item) => (
+        <GroceryEntry item={item} remove={remove} />
       ))}
     </div>
   );
-};
+}
